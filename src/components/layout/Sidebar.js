@@ -9,7 +9,12 @@ const Sidebar = () => {
             <UpdateGrant />
 
             <div className="proyectos">
-                <h2>☝ Update DB</h2>
+                <h2>
+                    <span 
+                        role="img" 
+                        aria-label="hand"
+                    >☝</span> Update DB
+                </h2>
             </div>
         </aside>
     );
