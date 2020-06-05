@@ -70,6 +70,8 @@ a {
 }
 .btn-primario:hover {
   background: var(--gris3);
+  transform: scale(1.05);
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .btn-secundario {
   background-color: var(--gris1);
@@ -200,6 +202,10 @@ aside  {
   margin-bottom: 1rem;
   border-radius: .5rem;
 
+}
+.tarea:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.2);
 }
 .sombra {
   -webkit-box-shadow: 0px 4px 10px -3px rgba(117,117,117,1);
