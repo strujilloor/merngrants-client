@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Grant from './Grant';
 
 const GrantsList = () => {
@@ -10,13 +10,20 @@ const GrantsList = () => {
     ]
 
     return (
-        <ul className="listado-proyectos">
-            {grants.map(grant => (
-                <Grant 
-                    grant={grant}
-                />
-            ))}
-        </ul>
+        <Fragment>
+            <h2>Grants List</h2>
+            <ul className="listado-tareas">
+                {
+                    grants.length === 0 
+                    ? (<li className="tarea"><p>There are no Grants</p></li>) 
+                    : grants.map( (grant) => (
+                        <Grant
+                        grant={ grant }
+                        />
+                    ))
+                }
+            </ul>
+        </Fragment>
     );
 };
 
