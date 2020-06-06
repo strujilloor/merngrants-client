@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import Grant from './Grant';
+import grantContext from '../../context/grants/grantContext';
 
 const GrantsList = () => {
 
-    const grants = [
-        {title: 'Leaders for Change-Virtual Exchange Program', number: 'S-DR860-20-NOFO-005', agencyCode: 'DOS-DOM', oppStatus: 'posted', openDate: '2020-06-05T00:00:00.000+00:00', closeDate: '2020-07-07T00:00:00.000+00:00'},
+    // Getting grants state
+    const grantsContext = useContext( grantContext );
+    const { grants } = grantsContext ;
 
-        {title: 'Increasing Public Awareness and Provider Education About Primary Immun...',  number: 'CDC-RFA-OE17-17020401SUPP20', agencyCode: 'HHS-CDC-CSELS', oppStatus: 'posted', openDate: '2020-06-05T00:00:00.000+00:00', closeDate: '2020-07-07T00:00:00.000+00:00'},
-
-        {title: 'Mitigating Violent Extremism in Masaka Region',  number: 'DOS-UG-PAS-FY20-1', agencyCode: 'DOS-UGA', oppStatus: 'posted', openDate: '2020-06-05T00:00:00.000+00:00', closeDate: '2020-07-07T00:00:00.000+00:00'}
-    ]
+    // Check if grants have content
+    if ( grants.length === 0 ) return null;
 
     return (
         <Fragment>
