@@ -3,6 +3,8 @@ import React, { useReducer } from 'react';
 import grantContext from './grantContext';
 import grantReducer from './grantReducer';
 
+import axiosClient from '../../config/axios';
+
 import { 
     START_LOADING_UPDATE_DATA,
     LOADING_UPDATE_DATA_SUCCESS,
@@ -24,27 +26,38 @@ const GrantState = (props) => {
 
     const initialState = {
         grants: [],
-        loadingUpdateData : false // TODO: maybe change to only loading
+        loadingUpdateData : false, // TODO: maybe change to only loading
+        dataUpdated: null
     };
 
     // dispatch to execute actions
     const [ state, dispatch ] = useReducer( grantReducer, initialState );
 
     // Functions Series that shoot state loading data update
-    const startLoadingUpdateDateFn = () => {
-        dispatch({
-            type: START_LOADING_UPDATE_DATA
-        });
-    }
-    const loadingUpdateDateSuccessFn = () => {
-        dispatch({
-            type: LOADING_UPDATE_DATA_SUCCESS
-        });
-    }
-    const loadingUpdateDateErrorFn = () => {
-        dispatch({
-            type: LOADING_UPDATE_DATA_ERROR
-        });
+    const updateData =  async () => {
+        try {
+            dispatch({
+                type: START_LOADING_UPDATE_DATA
+            });
+
+            const response = await axiosClient.get('/api/grants/update');
+            console.log( response );
+
+            dispatch({
+                type: LOADING_UPDATE_DATA_SUCCESS,
+                payload: {
+                    msg: 'Database Updated ✔'
+                }
+            });
+        } catch (error) {
+            console.log( error );
+            dispatch({
+                type: LOADING_UPDATE_DATA_ERROR,
+                payload: {
+                    msg: 'Database not updated ✖'
+                }
+            });
+        }
     }
 
     // Get grants
@@ -61,9 +74,9 @@ const GrantState = (props) => {
             value={{
                 grants: state.grants,
                 loadingUpdateData: state.loadingUpdateData,
-                startLoadingUpdateDateFn,
-                loadingUpdateDateSuccessFn,
-                loadingUpdateDateErrorFn,
+                dataUpdated: state.dataUpdated,
+
+                updateData,
                 getGrants
             }}
         >{ props.children }

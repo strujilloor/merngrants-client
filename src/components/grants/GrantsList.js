@@ -26,7 +26,8 @@ const GrantsList = () => {
                     ? (<li className="tarea"><p>There are no Grants</p></li>) 
                     : grants.map( (grant) => (
                         <Grant
-                        grant={ grant }
+                            key={ grant.id }
+                            grant={ grant }
                         />
                     ))
                 }

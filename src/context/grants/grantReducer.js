@@ -11,13 +11,17 @@ export default (state, action) => {
         case START_LOADING_UPDATE_DATA:
             return {
                 ...state,
-                loadingUpdateData: true
+                loadingUpdateData: true,
+                dataUpdated: false
             }
         case LOADING_UPDATE_DATA_SUCCESS:
         case LOADING_UPDATE_DATA_ERROR:
             return {
                 ...state,
-                loadingUpdateData: false
+                loadingUpdateData: false,
+                dataUpdated: {
+                    msg: action.payload.msg
+                }
             }
         case GET_GRANTS:
             return {
