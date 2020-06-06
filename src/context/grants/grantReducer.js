@@ -1,7 +1,9 @@
 import { 
     START_LOADING_UPDATE_DATA,
     LOADING_UPDATE_DATA_SUCCESS,
-    LOADING_UPDATE_DATA_ERROR
+    LOADING_UPDATE_DATA_ERROR,
+
+    GET_GRANTS
 } from '../../types';
 
 export default (state, action) => {
@@ -16,6 +18,11 @@ export default (state, action) => {
             return {
                 ...state,
                 loadingUpdateData: false
+            }
+        case GET_GRANTS:
+            return {
+                ...state,
+                grants: action.payload
             }
         default:
             return state;

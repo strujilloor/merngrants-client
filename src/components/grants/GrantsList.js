@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import Grant from './Grant';
 import grantContext from '../../context/grants/grantContext';
 
@@ -6,10 +6,16 @@ const GrantsList = () => {
 
     // Getting grants state
     const grantsContext = useContext( grantContext );
-    const { grants } = grantsContext ;
+    const { grants, getGrants } = grantsContext ;
+    
+    // Get grants when component load
+    useEffect(() => {
+        getGrants();
+    }, []);
 
     // Check if grants have content
     if ( grants.length === 0 ) return null;
+
 
     return (
         <Fragment>
