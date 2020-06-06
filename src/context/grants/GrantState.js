@@ -5,7 +5,7 @@ import grantReducer from './grantReducer';
 
 const GrantState = (props) => {
     const initialState = {
-        loadingUpdatedata : false
+        loadingUpdateData : false
     };
 
     // dispatch to execute actions
@@ -13,7 +13,7 @@ const GrantState = (props) => {
     
     return (
         <grantContext.Provider
-            value={{ loadingUpdatedata: state.loadingUpdatedata }}
+            value={{ loadingUpdateData: state.loadingUpdateData }}
         >{ props.children }
         </grantContext.Provider>
     );

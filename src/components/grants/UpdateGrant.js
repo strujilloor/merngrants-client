@@ -1,6 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
+import grantContext from '../../context/grants/grantContext';
 
 const UpdateGrant = () => {
+
+    // Getting loadingUpdateData state
+    const grantsContext = useContext( grantContext );
+    const { loadingUpdateData } = grantsContext ;
 
     const [ loading, setLoading ] = useState(false);
     const [ updated, setUpdated ] = useState(false);
@@ -31,6 +36,9 @@ const UpdateGrant = () => {
                 className="btn btn-block btn-primario"
                 onClick={ updateGrants }
             >Update DB</button>
+            {
+                loadingUpdateData ? <p>Loading...</p>: null
+            }
 
             {
                 updated ? <p>DB Updated ✔</p> : null
