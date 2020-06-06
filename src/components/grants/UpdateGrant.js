@@ -5,9 +5,13 @@ const UpdateGrant = () => {
 
     // Getting loadingUpdateData state
     const grantsContext = useContext( grantContext );
-    const { loadingUpdateData } = grantsContext ;
+    const {
+        loadingUpdateData, // state
+        startLoadingUpdateDateFn, // dispatch start loading
+        loadingUpdateDateSuccessFn,  // dispatch success loading
+        loadingUpdateDateErrorFn // dispatch error loading
+    } = grantsContext ;
 
-    const [ loading, setLoading ] = useState(false);
     const [ updated, setUpdated ] = useState(false);
 
     const updateGrants =  async () => {
@@ -15,15 +19,15 @@ const UpdateGrant = () => {
 
         try {
             setUpdated(false);
-            setLoading(true); // loading...
+            startLoadingUpdateDateFn(); // Loading
             let response = await fetch(url);
             let data = await response.json();
-            setLoading(false);
-            setUpdated(true); // success
+            loadingUpdateDateSuccessFn(); // Success
+            setUpdated(true);
             console.log(data);
         } catch (error) {
             console.log(error);
-            setLoading(false);
+            loadingUpdateDateErrorFn(); // Error
             setUpdated(false);
         }
         
