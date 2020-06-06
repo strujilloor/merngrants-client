@@ -15,14 +15,6 @@ import {
 
 
 const GrantState = (props) => {
-    const grants = [
-        {id: 1, title: 'Leaders for Change-Virtual Exchange Program', number: 'S-DR860-20-NOFO-005', agencyCode: 'DOS-DOM', oppStatus: 'posted', openDate: '2020-06-05T00:00:00.000+00:00', closeDate: '2020-07-07T00:00:00.000+00:00'},
-        
-        {id: 2, title: 'Increasing Public Awareness and Provider Education About Primary Immun...',  number: 'CDC-RFA-OE17-17020401SUPP20', agencyCode: 'HHS-CDC-CSELS', oppStatus: 'posted', openDate: '2020-06-05T00:00:00.000+00:00', closeDate: '2020-07-07T00:00:00.000+00:00'},
-    
-        {id: 3, title: 'Mitigating Violent Extremism in Masaka Region',  number: 'DOS-UG-PAS-FY20-1', agencyCode: 'DOS-UGA', oppStatus: 'posted', openDate: '2020-06-05T00:00:00.000+00:00', closeDate: '2020-07-07T00:00:00.000+00:00'}
-    ];
-
 
     const initialState = {
         grants: [],
@@ -49,6 +41,8 @@ const GrantState = (props) => {
                     msg: 'Database Updated ✔'
                 }
             });
+
+            getGrants();
         } catch (error) {
             console.log( error );
             dispatch({
@@ -61,13 +55,17 @@ const GrantState = (props) => {
     }
 
     // Get grants
-    const getGrants = () => {
+    const getGrants = async () => {
+
+        const response = await axiosClient.get('/api/grants?page=1&pagination=10');
+        const grants = response.data.grants;
+        console.log( grants );
+
         dispatch({
             type: GET_GRANTS,
             payload: grants
         });
     }
-
     
     return (
         <grantContext.Provider
