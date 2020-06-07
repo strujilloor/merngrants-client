@@ -41,7 +41,7 @@ const Grants = () => {
                 <Bar />
 
                 <main>
-                    <div className="contenedor-tareas">
+                    <div className="contenedor-grants">
                         <h2>Grants List</h2>
                         <GrantsList 
                             grants={ currentGrants }

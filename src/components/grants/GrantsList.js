@@ -10,7 +10,7 @@ const GrantsList = ({ grants, loading }) => {
     return (
         <Fragment>
             
-            <ul className="listado-tareas">
+            <ul className="listado-grants">
                 {
                     loading ? <p>Loading...</p> :
                     grants.length === 0 
