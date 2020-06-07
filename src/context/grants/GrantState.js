@@ -10,7 +10,10 @@ import {
     LOADING_UPDATE_DATA_SUCCESS,
     LOADING_UPDATE_DATA_ERROR,
 
-    GET_GRANTS
+    GET_GRANTS,
+    START_LOADING_GRANTS,
+    LOADING_GRANTS_SUCCESS,
+    LOADING_GRANTS_ERROR
 } from '../../types';
 
 
@@ -19,7 +22,8 @@ const GrantState = (props) => {
     const initialState = {
         grants: [],
         loadingUpdateData : false, // TODO: maybe change to only loading
-        dataUpdated: null
+        dataUpdated: null,
+        loading: false // Loading pages
     };
 
     // dispatch to execute actions
@@ -57,14 +61,30 @@ const GrantState = (props) => {
     // Get grants
     const getGrants = async () => {
 
-        const response = await axiosClient.get('/api/grants?page=1&pagination=10');
-        const grants = response.data.grants;
-        console.log( grants );
-
         dispatch({
-            type: GET_GRANTS,
-            payload: grants
+            type: START_LOADING_GRANTS
         });
+
+        try {
+            const response = await axiosClient.get('/api/grants?page=1&pagination=10');
+            const grants = response.data.grants;
+            console.log( grants );
+    
+            dispatch({
+                type: GET_GRANTS,
+                payload: grants
+            });
+            dispatch({
+                type: LOADING_GRANTS_SUCCESS
+            });
+            
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: LOADING_GRANTS_ERROR
+            });
+        }
+
     }
     
     return (
@@ -73,6 +93,7 @@ const GrantState = (props) => {
                 grants: state.grants,
                 loadingUpdateData: state.loadingUpdateData,
                 dataUpdated: state.dataUpdated,
+                loading: state.loading,
 
                 updateData,
                 getGrants
