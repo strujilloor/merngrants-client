@@ -370,21 +370,24 @@ ul.pagination {
   padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #0275d8;
+  color: var(--gris2);
   background-color: #fff;
   border: 1px solid #ddd;
 }
 
-.page-link:focus, .page-link:hover {
-  color: #014c8c;
+.page-link:hover {
+  color: var(--gris2);
   text-decoration: none;
   background-color: #eceeef;
+  border-color: #ddd;
+}
+.page-link:focus {
   border-color: #ddd;
 }
 
 .active {
   z-index: 2;
   color: #fff;
-  background-color: #0275d8;
-  border-color: #0275d8;
+  background-color: var(--gris2);
+  border-color: var(--gris2);
 }

@@ -1,4 +1,5 @@
 import React, 
+// eslint-disable-next-line
     { Fragment, useContext, useEffect, useState } from 'react';
 import Sidebar from '../layout/Sidebar';
 import GrantsList from './GrantsList';
@@ -19,6 +20,7 @@ const Grants = () => {
     // Get grants when component load
     useEffect(() => {
         getGrants();
+        // eslint-disable-next-line
     }, []);
 
     // Get current grants
@@ -48,6 +50,7 @@ const Grants = () => {
                             grantsPerPage={ grantsPerPage }
                             totalGrants={ grants.length }
                             paginate={ paginate }
+                            currentPage = { currentPage }
                         />
                     </div>
                 </main>
