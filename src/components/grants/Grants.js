@@ -1,8 +1,6 @@
 import React,
     { Fragment, useContext, useEffect, useState } from 'react';
-import Sidebar from '../layout/Sidebar';
 import GrantsList from './GrantsList';
-import Bar from '../layout/Bar';
 // import Pagination from '../Pagination';
 import grantContext from '../../context/grants/grantContext';
 import Pagination from "react-js-pagination";
