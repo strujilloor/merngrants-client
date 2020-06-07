@@ -342,6 +342,7 @@ ul.pagination {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
+  justify-content: center!important;
 }
 
 .pagination {
