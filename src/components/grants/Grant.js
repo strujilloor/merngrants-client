@@ -34,7 +34,7 @@ const Grant = ({ grant }) => {
 };
 
 function dateTransform( dateString ) {
-    const dateObject = new Date( '07/20/2020' );
+    const dateObject = new Date( dateString );
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const humanDateFormat = dateObject.toLocaleString('en-419', options);
 

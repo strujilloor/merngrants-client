@@ -22,9 +22,10 @@ const Grants = () => {
     }, []);
 
     // Get current grants
-    const indexOfLastGrant = currentPage * grantsPerPage;
+    const indexOfLastGrant = (currentPage * grantsPerPage);
     const indexOfFirstGrant = indexOfLastGrant - grantsPerPage;
     const currentGrants = grants.slice( indexOfFirstGrant, indexOfLastGrant ); // change to api request
+    // console.log(currentGrants)
 
     // change page 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -32,11 +33,14 @@ const Grants = () => {
     return (
         <Fragment >
             <h2>Grants List</h2>
-            <GrantsList 
-                grants={ currentGrants }
-                loading={ loading } 
-            />
             
+            <div className="scroll padding-2">
+                <GrantsList 
+                    grants={ currentGrants }
+                    loading={ loading } 
+                />
+            </div>
+
             <Pagination
                 activePage={ currentPage }
                 itemsCountPerPage={ grantsPerPage }

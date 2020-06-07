@@ -184,7 +184,14 @@ aside  {
 
 /** GRANTS LISTADO **/
 .contenedor-grants {
-  padding: 4rem;
+  padding-top: 4rem;
+  padding-right: 4rem;
+  padding-left: 4rem;
+
+}
+
+.contenedor-grants > h2 {
+  margin-bottom: 1rem;
 }
 
 .listado-grants {
@@ -257,6 +264,10 @@ aside  {
   .contenedor-grants {
     padding: 0.6rem;
     padding-top: 4rem;
+  }
+
+  .contenedor-grants > h2 {
+    margin-bottom: 1rem;
   }
 
   .grant {
@@ -389,6 +400,15 @@ aside  {
   margin-top: 2rem;
   display: block;
   opacity: .7;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 42rem;
+}
+
+.padding-2 {
+  padding: 2.3rem;
 }
 
 /* Pagination */
