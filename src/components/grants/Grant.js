@@ -29,49 +29,11 @@ const Grant = ({ grant }) => {
                 <div className="name">📅 Close Date</div>
             </div>
 
-
-            
-
-            {/* <p>{grant.title} </p>
-
-            <div className="estado">
-                {grant.estado 
-                ?  
-                    (
-                        <button
-                            type="button"
-                            className="completo"
-                        >Completo</button>
-                    )
-                : 
-                    (
-                        <button
-                            type="button"
-                            className="incompleto"
-                        >{grant.oppStatus}</button>
-                    )
-                }
-            </div>
-
-            <div className="acciones">
-                <button 
-                    type="button"
-                    className="btn btn-primario"
-                >{od.getFullYear()}</button>
-
-                <button
-                    type="button"
-                    className="btn btn-secundario"
-                >{cd.getFullYear()}</button>
-            </div> */}
         </li>
     );
 };
 
 function dateTransform( dateString ) {
-    // const date = new Date( dateString );
-    // return `${date.getMonth()}/${date.getTime()}/${date.getFullYear()}`;
-    // Formatenado la fecha:
     const dateObject = new Date( '07/20/2020' );
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const humanDateFormat = dateObject.toLocaleString('en-419', options);

@@ -6,7 +6,7 @@ const Bar = () => {
             <p className="nombre-usuario">Welcome <span>Grants</span> </p>
 
             <nav className="nav-principal">
-                <a href="#!">Switch</a>
+                <a href="https://github.com/strujilloor/merngrants-client">GitHub</a>
             </nav>
         </header>
     );
