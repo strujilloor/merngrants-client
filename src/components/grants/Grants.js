@@ -4,8 +4,9 @@ import React,
 import Sidebar from '../layout/Sidebar';
 import GrantsList from './GrantsList';
 import Bar from '../layout/Bar';
-import Pagination from '../Pagination';
+// import Pagination from '../Pagination';
 import grantContext from '../../context/grants/grantContext';
+import Pagination from "react-js-pagination";
 
 const Grants = () => {
 
@@ -46,11 +47,24 @@ const Grants = () => {
                             grants={ currentGrants }
                             loading={ loading } 
                         />
-                        <Pagination 
-                            grantsPerPage={ grantsPerPage }
-                            totalGrants={ grants.length }
-                            paginate={ paginate }
-                            currentPage = { currentPage }
+                        
+                        <Pagination
+                            activePage={ currentPage }
+                            itemsCountPerPage={ grantsPerPage }
+                            totalItemsCount={ grants.length }
+                            pageRangeDisplayed={ 3 } // range of pages to show
+                            onChange={ paginate }
+                            hideDisabled={ true }
+
+                            prevPageText="Prev"
+                            // firstPageText="First"
+                            // lastPageText="Last"
+                            nextPageText="Next"
+                            innerClass="pagination" // ul
+                            itemClass="page-item"   // li
+                            linkClass="page-link"   // a
+                            activeLinkClass="active"
+                            
                         />
                     </div>
                 </main>
