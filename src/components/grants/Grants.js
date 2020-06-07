@@ -1,5 +1,4 @@
-import React, 
-// eslint-disable-next-line
+import React,
     { Fragment, useContext, useEffect, useState } from 'react';
 import Sidebar from '../layout/Sidebar';
 import GrantsList from './GrantsList';
@@ -33,43 +32,32 @@ const Grants = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="contenedor-app">
-            <Sidebar />
+        <Fragment >
+            <h2>Grants List</h2>
+            <GrantsList 
+                grants={ currentGrants }
+                loading={ loading } 
+            />
+            
+            <Pagination
+                activePage={ currentPage }
+                itemsCountPerPage={ grantsPerPage }
+                totalItemsCount={ grants.length }
+                pageRangeDisplayed={ 5 } // range of pages numbers to show
+                onChange={ paginate }
+                hideDisabled={ true }
 
-            <div className="seccion-principal">
-
-                <Bar />
-
-                <main>
-                    <div className="contenedor-grants">
-                        <h2>Grants List</h2>
-                        <GrantsList 
-                            grants={ currentGrants }
-                            loading={ loading } 
-                        />
-                        
-                        <Pagination
-                            activePage={ currentPage }
-                            itemsCountPerPage={ grantsPerPage }
-                            totalItemsCount={ grants.length }
-                            pageRangeDisplayed={ 5 } // range of pages numbers to show
-                            onChange={ paginate }
-                            hideDisabled={ true }
-
-                            prevPageText="Prev"
-                            // firstPageText="First"
-                            // lastPageText="Last"
-                            nextPageText="Next"
-                            innerClass="pagination" // ul
-                            itemClass="page-item"   // li
-                            linkClass="page-link"   // a
-                            activeLinkClass="active"
-                            
-                        />
-                    </div>
-                </main>
-            </div>
-        </div>
+                prevPageText="Prev"
+                // firstPageText="First"
+                // lastPageText="Last"
+                nextPageText="Next"
+                innerClass="pagination" // ul
+                itemClass="page-item"   // li
+                linkClass="page-link"   // a
+                activeLinkClass="active"
+                
+            />
+        </Fragment>
     );
 };
 
