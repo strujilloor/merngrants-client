@@ -16,7 +16,7 @@ const Grants = () => {
 
     // Component State
     const [ currentPage, setCurrentPage ] = useState( 1 );
-    const [ grantsPerPage ] = useState( 2 );
+    const [ grantsPerPage ] = useState( 20 );
     
     // Get grants when component load
     useEffect(() => {
@@ -52,7 +52,7 @@ const Grants = () => {
                             activePage={ currentPage }
                             itemsCountPerPage={ grantsPerPage }
                             totalItemsCount={ grants.length }
-                            pageRangeDisplayed={ 3 } // range of pages to show
+                            pageRangeDisplayed={ 5 } // range of pages numbers to show
                             onChange={ paginate }
                             hideDisabled={ true }
 

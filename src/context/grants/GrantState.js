@@ -46,7 +46,7 @@ const GrantState = (props) => {
                 }
             });
 
-            getGrants();
+            await getGrants();
         } catch (error) {
             console.log( error );
             dispatch({
@@ -66,7 +66,7 @@ const GrantState = (props) => {
         });
 
         try {
-            const response = await axiosClient.get('/api/grants?page=1&pagination=10');
+            const response = await axiosClient.get('/api/grants?page=1&pagination=1000');
             const grants = response.data.grants;
             console.log( grants );
     

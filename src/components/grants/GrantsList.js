@@ -12,11 +12,9 @@ const GrantsList = ({ grants, loading }) => {
             
             <ul className="listado-tareas">
                 {
-                    loading ? <p>Loading...</p> : null
-                }
-                {
+                    loading ? <p>Loading...</p> :
                     grants.length === 0 
-                    ? (<li className="tarea"><p>There are no Grants</p></li>) 
+                    ? (<li className="tarea"><p>There are not Grants</p></li>) 
                     : grants.map( (grant) => (
                         <Grant
                             key={ grant.id }
