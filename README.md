@@ -2,6 +2,9 @@
 
 MERNGRANTS is a project that aims to store and display in a friendly and easy way assimilation of GRANTS from grants.gov
 
+## Deployment
+
+https://merngrants.netlify.app
 ___
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
