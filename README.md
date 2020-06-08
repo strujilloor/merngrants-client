@@ -2,8 +2,6 @@
 
 MERNGRANTS is a project that aims to store and display in a friendly and easy way assimilation of GRANTS from grants.gov
 
-![Usage example](https://res.cloudinary.com/dzhj8ymvz/image/upload/v1591612737/video-to-gif-converter_xmb6ym.gif "Usage example")
-
 ___
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
