@@ -40,7 +40,7 @@ const GrantState = (props) => {
             });
 
             const response = await axiosClient.get('/api/grants/update');
-            console.log( response );
+            // console.log( response );
 
             dispatch({
                 type: LOADING_UPDATE_DATA_SUCCESS,
@@ -98,7 +98,7 @@ const GrantState = (props) => {
         try {
             const response = await axiosClient.get( `/api/grants/grant?id=${ id }` );
             const grant = response.data.updatedGrant;
-            console.log( 'grant: ', grant );
+            // console.log( 'grant: ', grant );
     
             dispatch({
                 type: GET_GRANT_DETAILS,

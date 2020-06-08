@@ -11,7 +11,7 @@ const GrantDetail = () => {
     
     // Get Grant id
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     // Get grantDetails when component loads
     useEffect(() => {
@@ -19,7 +19,7 @@ const GrantDetail = () => {
         // eslint-disable-next-line
     }, []);
 
-    console.log('grantdetails:', grantDetails);
+    // console.log('grantdetails:', grantDetails);
 
     return (
         <div>
@@ -42,22 +42,22 @@ const GrantDetail = () => {
                         <p className="uppercase-bold">General Information</p>
                         <div className="column-2">
                             <p><b>Funding Opportunity Number:</b> { grantDetails.details.opportunityNumber }</p>
-                            <p className="text-align-right"><b>Version:</b> Synopsis { grantDetails.details.synopsis.version }</p>
+                            <p className="text-align-right"><b>Version:</b> Synopsis { grantDetails.details.synopsis ? grantDetails.details.synopsis.version : null }</p>
                             <p><b>Funding Opportunity Title:</b> { grantDetails.details.opportunityTitle }</p>
-                            <p className="text-align-right"><b>Posted Date</b>: { grantDetails.details.synopsis.postingDate }</p>
+                            <p className="text-align-right"><b>Posted Date</b>: { grantDetails.details.synopsis ? grantDetails.details.synopsis.postingDate : null }</p>
                             <p><b>Opportunity Category:</b> { grantDetails.details.opportunityCategory.description }</p>
-                            <p className="text-align-right"><b>Last Updated Date:</b> { grantDetails.details.synopsis.lastUpdatedDate }</p>
-                            <p><b>Funding Instrument Type:</b> { grantDetails.details.synopsis.fundingInstruments[0].description }</p>
-                            <p className="text-align-right"><b>Archive Date:</b> { grantDetails.details.synopsis.archiveDate }</p>
-                            <p><b>Category of Funding Activity:</b> { grantDetails.details.synopsis.fundingActivityCategories[0].description }</p>
-                            <p className="text-align-right"><b>Estimated Total Program Funding</b> ${ grantDetails.details.synopsis.estimatedFundingFormatted }</p>
-                            <p><b>Expected Number of Awards:</b> { grantDetails.details.synopsis.numberOfAwards }</p>
-                            <p className="text-align-right"><b>Award Ceiling:</b> ${ grantDetails.details.synopsis.awardCeilingFormatted }</p>
+                            <p className="text-align-right"><b>Last Updated Date:</b> { grantDetails.details.synopsis ? grantDetails.details.synopsis.lastUpdatedDate : null }</p>
+                            <p><b>Funding Instrument Type:</b> { grantDetails.details.synopsis ? grantDetails.details.synopsis.fundingInstruments[0].description : null }</p>
+                            <p className="text-align-right"><b>Archive Date:</b> { grantDetails.details.synopsis ? grantDetails.details.synopsis.archiveDate : null }</p>
+                            <p><b>Category of Funding Activity:</b> { grantDetails.details.synopsis ? grantDetails.details.synopsis.fundingActivityCategories[0].description : null}</p>
+                            <p className="text-align-right"><b>Estimated Total Program Funding</b> ${ grantDetails.details.synopsis ? grantDetails.details.synopsis.estimatedFundingFormatted : null }</p>
+                            <p><b>Expected Number of Awards:</b> { grantDetails.details.synopsis ? grantDetails.details.synopsis.numberOfAwards : null }</p>
+                            <p className="text-align-right"><b>Award Ceiling:</b> ${ grantDetails.details.synopsis ? grantDetails.details.synopsis.awardCeilingFormatted : null }</p>
                             <p><b>CFDA Number(s):</b> { grantDetails.details.cfdas[0].cfdaNumber } -- { grantDetails.details.cfdas[0].programTitle }</p>
-                            <p className="text-align-right"><b>Award Floor:</b> ${ grantDetails.details.synopsis.awardFloor }</p>
+                            <p className="text-align-right"><b>Award Floor:</b> ${ grantDetails.details.synopsis ? grantDetails.details.synopsis.awardFloor : null }</p>
                         </div>
                     </div>
-                    <p className="padding-3 text-align-right"><b>Grantor Contact Information:</b> If you have difficulty accessing the full announcement electronically, please contact: { grantDetails.details.synopsis.agencyContactEmail }</p>
+                    <p className="padding-3 text-align-right"><b>Grantor Contact Information:</b> If you have difficulty accessing the full announcement electronically, please contact: { grantDetails.details.synopsis ? grantDetails.details.synopsis.agencyContactEmail : null}</p>
                 </div>
 
                 : null
