@@ -13,7 +13,9 @@ import {
     GET_GRANTS,
     START_LOADING_GRANTS,
     LOADING_GRANTS_SUCCESS,
-    LOADING_GRANTS_ERROR
+    LOADING_GRANTS_ERROR,
+
+    GET_GRANT_DETAILS
 } from '../../types';
 
 
@@ -21,9 +23,10 @@ const GrantState = (props) => {
 
     const initialState = {
         grants: [],
-        loadingUpdateData : false, // TODO: maybe change to only loading
+        loadingUpdateData : false,
         dataUpdated: null,
-        loading: false // Loading pages
+        loading: false, // Loading pages,
+        grantDetails: null // Grant with all details
     };
 
     // dispatch to execute actions
@@ -86,6 +89,32 @@ const GrantState = (props) => {
         }
 
     }
+
+    // Get Grant Details
+    const getGrantDetails = async ( id ) => {
+        dispatch({
+            type: START_LOADING_GRANTS
+        });
+        try {
+            const response = await axiosClient.get( `/api/grants/grant?id=${ id }` );
+            const grant = response.data.updatedGrant;
+            console.log( 'grant: ', grant );
+    
+            dispatch({
+                type: GET_GRANT_DETAILS,
+                payload: grant
+            });
+            dispatch({
+                type: LOADING_GRANTS_SUCCESS
+            });
+            
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: LOADING_GRANTS_ERROR
+            });
+        }
+    }
     
     return (
         <grantContext.Provider
@@ -94,9 +123,11 @@ const GrantState = (props) => {
                 loadingUpdateData: state.loadingUpdateData,
                 dataUpdated: state.dataUpdated,
                 loading: state.loading,
+                grantDetails: state.grantDetails,
 
                 updateData,
-                getGrants
+                getGrants,
+                getGrantDetails
             }}
         >{ props.children }
         </grantContext.Provider>

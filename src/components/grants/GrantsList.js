@@ -1,5 +1,4 @@
-import React, 
-    { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Grant from './Grant';
 
 const GrantsList = ({ grants, loading }) => {

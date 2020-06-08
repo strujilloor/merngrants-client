@@ -4,6 +4,8 @@
   --gris2: #2f3848;
   --gris3: #1a202d;
   --negro: #000000;
+  --azul1: #b4cdfacf;
+  --azul2: #b4cdfa70;
   --headingFont:'Raleway', sans-serif;
   --textFont:  'Roboto', sans-serif;
 }
@@ -235,14 +237,14 @@ aside  {
 
 .grant-column-3 {
   justify-self: end;
-  background-color: #b4cdfacf;
+  background-color: var(--azul1);
   height: 100%;
   border-radius: 0rem 0.5rem 0.5rem 0rem;
 }
 
 .grant-column-2 {
   /* padding-right: 0rem; */
-  background: #b4cdfa70;
+  background: var(--azul2);
   width: 100%;
   height: 100%;
 }
@@ -266,12 +268,17 @@ aside  {
     padding-top: 4rem;
   }
 
-  .contenedor-grants > h2 {
+  .contenedor-grants h2 {
     margin-bottom: 1rem;
+    margin-top: 2rem;
   }
 
   .grant {
     grid-template-columns: 50% 1fr 1fr;
+  }
+
+  .back-button {
+    margin-left: 0.1rem;
   }
 
 }
@@ -410,6 +417,9 @@ aside  {
 .padding-2 {
   padding: 2.3rem;
 }
+.padding-3 {
+  padding: 3.3rem;
+}
 
 /* Pagination */
 
@@ -468,4 +478,71 @@ ul.pagination {
   color: #fff;
   background-color: var(--gris2);
   border-color: var(--gris2);
+}
+
+/* GRANT DETAILS */
+
+.card {
+  background-color: var(--blanco);
+  border-radius: .5rem;
+  /* padding: 4rem; */
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin-bottom: 2rem;
+}
+
+.card .header {
+  background-color: var(--azul1);
+  border-radius: .5rem .5rem 0rem 0rem;
+  padding: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.card .header p {
+  margin-top: 0rem !important;
+  margin-bottom: 0.2rem !important;
+  font-family: var(--headingFont);
+  font-weight: 900;
+  /* font-size: 1.4rem; */
+  /* text-transform: uppercase; */
+  margin: 0 0 4rem 0;
+  color: var(--gris2);
+}
+
+.card .general-info {
+  background-color: var(--azul2);
+  border-radius: .5rem 1.2rem .5rem 1.2rem;
+  box-shadow: 6px 7px 8px -3px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  padding-top: 0.5rem;
+  width: 90%;
+}
+
+.column-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.uppercase-bold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card p {
+  /* margin: 0rem; */
+}
+
+.back-button {
+  /* background-color: var(--gris2); */
+}
+.back-button:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2); */
+  font-size: 1.9rem;
 }

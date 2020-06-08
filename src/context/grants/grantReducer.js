@@ -6,7 +6,9 @@ import {
     GET_GRANTS,
     START_LOADING_GRANTS,
     LOADING_GRANTS_SUCCESS,
-    LOADING_GRANTS_ERROR
+    LOADING_GRANTS_ERROR,
+
+    GET_GRANT_DETAILS
 } from '../../types';
 
 export default (state, action) => {
@@ -41,6 +43,11 @@ export default (state, action) => {
             return {
                 ...state,
                 loading: false
+            }
+        case GET_GRANT_DETAILS:
+            return {
+                ...state,
+                grantDetails: action.payload
             }
         default:
             return state;

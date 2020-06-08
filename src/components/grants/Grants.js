@@ -9,13 +9,13 @@ const Grants = () => {
 
     // Getting grants state
     const grantsContext = useContext( grantContext );
-    const { grants, getGrants, loading } = grantsContext ;
+    const { grants, getGrants, loading } = grantsContext;
 
     // Component State
     const [ currentPage, setCurrentPage ] = useState( 1 );
     const [ grantsPerPage ] = useState( 20 );
     
-    // Get grants when component load
+    // Get grants when component loads
     useEffect(() => {
         getGrants();
         // eslint-disable-next-line
