@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Grants from './components/grants/Grants';
 import Sidebar from './components/layout/Sidebar';
 import Bar from './components/layout/Bar';
+import GrantDetail from './components/grants/GrantDetail';
 
 import GrantState from './context/grants/GrantState';
 
@@ -23,11 +24,9 @@ function App() {
                   <Route exact path="/">
                     <Redirect to="/grants" /> 
                   </Route> 
-                  <Route exact path="/grants" component={Grants} /> 
+                  <Route exact path="/grants" component={ Grants } /> 
                   {/* <Route exact path="/grant:id" component={Grant} />  */}
-                  <Route exact path="/prueba">
-                    <p>Prueba</p>
-                  </Route>
+                  <Route exact path="/grant/:id" component={ GrantDetail }/>
                 </Switch>
               </Router>
 

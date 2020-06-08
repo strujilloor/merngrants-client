@@ -68,7 +68,7 @@ const GrantState = (props) => {
         try {
             const response = await axiosClient.get('/api/grants?page=1&pagination=1000');
             const grants = response.data.grants;
-            console.log( grants );
+            // console.log( grants );
     
             dispatch({
                 type: GET_GRANTS,

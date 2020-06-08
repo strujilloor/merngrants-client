@@ -1,9 +1,16 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 
 const Grant = ({ grant }) => {
+
+    const history = useHistory();
     
+    const goToGrantDetail = () => {
+        history.push(`/grant/${ grant.id }`);
+    }
+
     return (
-        <li className="grant">
+        <li onClick={ goToGrantDetail } className="grant">
 
             <div className="grant-column-1">
                 <div className="value">{ grant.title }</div>
