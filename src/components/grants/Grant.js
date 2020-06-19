@@ -30,9 +30,11 @@ const Grant = ({ grant }) => {
 
             <div className="grant-column-3">
                 <div className="value">{ dateTransform(grant.openDate) }</div>
+                {/* eslint-disable-next-line */}
                 <div className="name">📅 Posted Date</div>
 
                 <div className="value-2">{ dateTransform(grant.closeDate) }</div>
+                {/* eslint-disable-next-line */}
                 <div className="name">📅 Close Date</div>
             </div>
 

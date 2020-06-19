@@ -39,6 +39,7 @@ const GrantState = (props) => {
                 type: START_LOADING_UPDATE_DATA
             });
 
+            // eslint-disable-next-line
             const response = await axiosClient.get('/api/grants/update');
             // console.log( response );
 
